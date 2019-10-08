@@ -1,0 +1,53 @@
+{
+    "SchemaVersion": "1.0.0",
+    "Id": "pump-01",
+    "Version": "0.0.1",
+    "Name": "Pump",
+    "Description": "Pump with run state and vibration.",
+    "Protocol": "AMQP",
+    "Simulation": {
+        "InitialState": {
+            "online": true,
+            "running": 1,
+            "vibration": 10.0,
+            "vibration_unit": "%"
+        },
+        "Interval": "00:00:10",
+        "Scripts": [
+            {
+            "Type": "javascript",
+            "Path": "pump-v1.js"
+            }
+        ]
+    },
+    "Properties": {
+        "Type": "Pump",
+        "Location": "Building Chiswick",
+        "Latitude": 51.4887556,
+        "Longitude": -0.2677274
+    },
+    "Telemetry": [
+        {
+            "Interval": "00:00:10",
+            "MessageTemplate": "{\"vibration\":${vibration},\"vibration_unit\":\"${vibration_unit}\",\"running\":${running}}",
+            "MessageSchema": {
+                "Name": "pump;v1",
+                "Format": "JSON",
+                "Fields": {
+                    "vibration": "double",
+                    "running": "integer"
+                }
+            }
+        }
+    ],
+    "CloudToDeviceMethods": {
+        "SetServiceState": {
+            "Type": "javascript",
+            "Path": "TBD.js"
+        },
+        "SimulateFault": {
+            "Type": "javascript",
+            "Path": "TBD.js"
+        }
+    }
+}
