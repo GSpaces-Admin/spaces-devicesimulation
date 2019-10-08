@@ -16,7 +16,7 @@
         "Scripts": [
             {
             "Type": "javascript",
-            "Path": "pump-v1.js"
+            "Path": "pump-v1-state.js"
             }
         ]
     },
@@ -31,7 +31,7 @@
             "Interval": "00:00:10",
             "MessageTemplate": "{\"vibration\":${vibration},\"vibration_unit\":\"${vibration_unit}\",\"running\":${running}}",
             "MessageSchema": {
-                "Name": "pump;v1",
+                "Name": "Pump;v1",
                 "Format": "JSON",
                 "Fields": {
                     "vibration": "double",
